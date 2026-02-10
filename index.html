@@ -64,21 +64,21 @@
     <div id="overlay"></div>
 
     <div id="popup">
-        <p>Будь готова в 13:00;&rpar;</p>
+        <p>ура, будь готова в субботу в 13:00;&rpar;</p>
     </div>
 
     <!-- Question mark -->
     <div class="wrapper">
         <!-- BEFORE (two images + ?) -->
         <div id="stage" class="merge-stage">
-            <img class="piece left" src="resources/sleva.png" alt="ja">
+            <img class="piece left" src="resources/sleva.jpg" alt="ja">
             <span class="qm">?</span>
-            <img class="piece right" src="resources/sprava.png" alt="ty">
+            <img class="piece right" src="resources/sprava.jpg" alt="ty">
         </div>
 
         <!-- AFTER (the merged result) -->
         <div id="result" class="merge-result" aria-hidden="true">
-            <img src="resources/merged.png" alt="merged" />
+            <img src="resources/merged.jpg" alt="merged" />
         </div>
     </div>
     <style>
@@ -145,22 +145,6 @@
 
         .merge-stage.is-merging .piece.right {
             transform: translateX(var(--move-right, 0px));
-        }
-
-        /* Optional: little “flash” at the moment of merge */
-        .merge-stage.is-merging::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 0;
-            background: #fff;
-            transition: transform 250ms ease, opacity 250ms ease;
-            pointer-events: none;
         }
 
         .merge-stage.is-merging.flash::after {
@@ -231,7 +215,7 @@
       align-items:center;
       min-height:0;
     ">
-        <img src="resources/kitties.gif" style="max-width:55%; height:auto; margin-bottom:30px;">
+        <img src="resources/kitties.gif" style="max-width:75%; height:auto; margin-bottom:30px;">
         <img src="resources/flower_emoji.png" style="max-width:60%; height:auto;">
     </div>
 
@@ -294,9 +278,6 @@
 
         // start animation
         stage.classList.add("is-merging");
-
-        // optional flash near the end
-        setTimeout(() => stage.classList.add("flash"), 600);
 
         // when motion finishes: hide stage, show result
         // (matches 700ms transition above)
